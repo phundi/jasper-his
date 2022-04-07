@@ -61,24 +61,15 @@ class ClientController < ApplicationController
     @trail_label = "Patient History"
 
     @modules = []
-    @modules <<  ['OPD', '4 Visits']
-    @modules <<  ['LAB', '13 Orders']
-    @modules <<  ['ANC', '5 Visits'] if @client.gender == 0
-    @modules <<  ['Maternity', '2 Visits'] if @client.gender == 0
-    @modules <<  ['ART', '2 Visits']
-    @modules <<  ['HTS', '2 Visits']
-    @modules <<  ['Surgery', '2 Visits']
-    @modules <<  ['Pharmacy', '2 Visits']
+    
 
     @common_encounters = []
-    @common_encounters << ['Presenting Complaints']
-    @common_encounters << ['Vitals']
-    @common_encounters << ['Diagnosis']
-    @common_encounters << ['New Lab Order']
-    @common_encounters << ['Prescribe Drugs']
-    @common_encounters << ['Dispense Drugs']
+    @common_encounters << ['Enter HIV Test Result', "/hiv_test_result/#{@client.id}"]
+    @common_encounters << ['Enter Viral Load Result', "/viral_load_result/#{@client.id}"]
+    @common_encounters << ['Give Drugs', "/dispense/#{@client.id}"]
+    @common_encounters << ['Update Outcome', "/outcomes/#{@client.id}"]
 
-    encounters = Encounter.where(client_id: params[:client_id]).order(" encounter_datetime DESC")
+    encounters = Encounter.where(client_id: params[:client_id]).order(" encounter_datetime DESC") rescue []
 
     @data = []
     encounters.each do |encounter|
@@ -90,38 +81,7 @@ class ClientController < ApplicationController
           "user"    => encounter.user
       } rescue next)
     end
-  end
-
-  def new_type
-    @client_type = ClientType.new
-    @action = "/client/new_type"
-    if request.post?
-      ClientType.create(name: params[:name], description: params[:description], voided: 0)
-      redirect_to "/client/client_types" and return
-    end
-  end
-
-  def view_type
-    @client_type = ClientType.find(params[:type_id])
-  end
-
-  def edit_type
-    @action = "/client/edit_type"
-    @client_type = ClientType.find(params[:type_id])
-    if request.post?
-      @client_type.name = params[:name]
-      @client_type.description = params[:description]
-      @client_type.save
-      redirect_to "/client/client_types" and return
-    end
-  end
-
-  def delete_type
-    type = ClientType.find(params[:type_id])
-    type.voided = 1
-    type.save
-    redirect_to '/client/client_types'
-  end
+  end 
 
   def ajax_clients
 

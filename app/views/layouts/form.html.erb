@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="Kenneth Kapundi" content="Homepage for HMIS">
+    <meta name="Jasper Chisi" content="Homepage">
 
-    <title>Software</title>
+    <title>ART Management System</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/sb-admin.css" rel="stylesheet">
@@ -165,7 +165,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
 
-          <a class="navbar-brand" href="/">System</a>
+          <a class="navbar-brand" href="/">ART Management System</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -179,12 +179,7 @@
               <li>
                 <a href="/user/view?user_id=<%= @cur_user.id%>"><i class="fa fa-fw fa-user"></i> My Account</a>
               </li>
-              <li>
-                <a href="/"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-              </li>
-              <li>
-                <a href="/"><i class="fa fa-fw fa-gear"></i> Settings</a>
-              </li>
+              
               <li class="divider"></li>
               <li>
                 <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -201,29 +196,7 @@
             <li id="clients">
               <a href="/client/index?active_tab=clients"><i class="fa fa-fw fa-list"></i> Clients</a>
             </li>
-            <li id="workflow">
-              <a href="/?active_tab=workflow"><i class="fa fa-fw fa-list"></i> Workflow</a>
-            </li>
-            <li id="modules">
-              <a href="/?active_tab=modules"><i class="fa fa-fw fa-list"></i> Modules</a>
-            </li>
-            <li id="config">
-              <a href="javascript:" data-toggle="collapse" data-target="#configs"><i class="fa fa-cog">
-              </i> Configurations <i class="fa fa-fw fa-caret-down"></i>
-              </a>
-              <ul id="configs" class="collapse">
-                <li>
-                  <a href="/location/index?active_tab=config">Locations</a>
-                </li>
-                <li>
-                  <a href="/location/tags?active_tab=config">Location Types</a>
-                </li>
-                <li>
-                  <a href="/client/client_types?active_tab=config">Client Types</a>
-                </li>
-
-              </ul>
-            </li>
+            
             <li id="access">
               <a href="javascript:" data-toggle="collapse" data-target="#acc-c"><i class="fa fa-cog">
               </i> Access Controls <i class="fa fa-fw fa-caret-down"></i>
@@ -235,12 +208,7 @@
                 <li>
                   <a href="/user/roles?active_tab=access">Roles</a>
                 </li>
-                <li>
-                  <a href="/user/permissions?active_tab=access">Permissions</a>
-                </li>
-                <li>
-                  <a href="/user/role_permissions?active_tab=access">Assign Role Permissions</a>
-                </li>
+                
                 <li>
                   <a href="/user/user_roles?active_tab=access">Assign User Roles</a>
                 </li>

@@ -22,9 +22,8 @@
                   <td class="table-cell trail-data"><%= data['title']%></td>
                   <td class="table-cell trail-data"><%= data['content'].html_safe%></td>
                   <td class="table-cell trail-data"><%= data['user']%></td>
-                  <td class="table-cell trail-data" style="min-width: 25%;">
-                    <a class="btn btn-danger btn-sm" disabled="disabled"><span class="glyphicon glyphicon-remove"></span>Void</a>
-                    <a class="btn btn-warning btn-sm" disabled="disabled" ><span class="glyphicon glyphicon-edit"></span>Edit</a>
+                  <td class="table-cell trail-data" style="min-width: 15%;">
+                    <a class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-remove"></span>Void</a>
                     <a onclick="loadEnc('<%= data['title']%>', '<%= data['data'].to_json%>')" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-eye-open"></span>View</a>
 
                   </td>
